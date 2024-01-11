@@ -12,8 +12,13 @@ const FileExplorer = () => {
 
   return (
     <main>
-      <div className="">
+      <div>
         <h1 className="font-bold">Your Documents</h1>
+        <div className="flex gap-16 w-2/3 font-semibold">
+          <p className="basis-1/5">Name</p>
+          <p className="basis-1/6">Last modified</p>
+          <p>Kind</p>
+        </div>
         <div className="flex flex-col gap-2">
           <FileDisplay userFiles={userFiles} />
         </div>
