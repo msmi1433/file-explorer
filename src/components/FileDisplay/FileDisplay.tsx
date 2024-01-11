@@ -1,10 +1,22 @@
 import { File } from "./types";
+import { useState } from "react";
 
 interface Props {
   userFiles: File[];
 }
 
 const FileDisplay: React.FC<Props> = ({ userFiles }) => {
+  const [expandFolder, setExpandFolder] = useState<{ [key: string]: boolean }>(
+    {}
+  );
+
+  const toggleFolderExpansion = (folderName: string) => {
+    setExpandFolder({
+      ...expandFolder,
+      [folderName]: !expandFolder[folderName],
+    });
+  };
+
   return (
     <>
       {userFiles.map((file) => {
@@ -19,8 +31,12 @@ const FileDisplay: React.FC<Props> = ({ userFiles }) => {
         } else {
           return (
             <li key={file.name}>
-              <p>{file.name}</p>
-              <FileDisplay userFiles={file.files} />
+              <p onClick={() => toggleFolderExpansion(file.name)}>
+                {file.name}
+              </p>
+              {expandFolder[file.name] ? (
+                <FileDisplay userFiles={file.files} />
+              ) : null}
             </li>
           );
         }
