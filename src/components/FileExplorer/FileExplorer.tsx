@@ -11,12 +11,20 @@ import {
 
 const FileExplorer = () => {
   const [userFiles, setUserFiles] = useState<File[]>([]);
-  const [dateSortOrder, setDateSortOrder] = useState("DESC");
-  const [nameSortOrder, setNameSortOrder] = useState("ASC");
+  const [dateSortOrder, setDateSortOrder] = useState<string>("DESC");
+  const [nameSortOrder, setNameSortOrder] = useState<string>("ASC");
+  const [filterTerm, setFilterTerm] = useState<string>("");
 
   useEffect(() => {
-    setUserFiles(fileData);
-  }, []);
+    if (filterTerm.length) {
+      setUserFiles(fileData);
+      setUserFiles((userFiles) =>
+        userFiles.filter((file) => file.name.includes(filterTerm))
+      );
+    } else {
+      setUserFiles(fileData);
+    }
+  }, [filterTerm]);
 
   const sortByDate = () => {
     if (dateSortOrder === "DESC") {
@@ -43,9 +51,15 @@ const FileExplorer = () => {
       <div>
         <h1 className="font-bold">Your Documents</h1>
         <div className="flex gap-16 w-2/3 font-semibold">
-          <button onClick={sortByName} className="basis-1/5">
-            Name
-          </button>
+          <div>
+            <button onClick={sortByName} className="basis-1/5">
+              Name
+            </button>
+            <input
+              type="text"
+              onChange={(e) => setFilterTerm(e.target.value)}
+            />
+          </div>
           <button onClick={sortByDate} className="basis-1/6">
             Last modified
           </button>

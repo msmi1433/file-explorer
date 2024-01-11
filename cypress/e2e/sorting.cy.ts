@@ -33,3 +33,18 @@ describe("Sort by name", () => {
     );
   });
 });
+
+describe("Search by name", () => {
+  it("Can filter files by name", () => {
+    cy.get("input").type("Misc");
+    cy.contains("Misc");
+    cy.contains("Expenses").should("not.exist");
+  });
+  it("Restores full list when search term deleted", () => {
+    cy.get("input").type("Misc");
+    cy.get("input").clear();
+    cy.get("[id=file-name]").should((files) =>
+      expect(files.length).to.equal(5)
+    );
+  });
+});
