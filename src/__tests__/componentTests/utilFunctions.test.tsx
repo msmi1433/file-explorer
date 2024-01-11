@@ -1,6 +1,6 @@
 /*I was having trouble testing using React Testing Library/Jest from this point,
 so I reverted to Cypress. I unfortunately could not find a way to pass props to
-the child component (FileDisplay) from the parent component on line 15 below.
+the child component (FileDisplay) from the parent component on line 18 below.
 Believe this is an issue as I am pulling data from a JSON file, so it can't be 'fetched'
 within the parent component when it is rendered in the test below. I've left the test here for
 your reference (skipped so it does not affect other test runs).
