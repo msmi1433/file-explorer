@@ -2,11 +2,17 @@ import { useEffect, useState } from "react";
 import fileData from "../../../data/file-structure.json";
 import FileDisplay from "../FileDisplay/FileDisplay";
 import { File } from "../FileDisplay/types";
-import { sortByDescDate, sortByAscDate } from "../../utils/sortFunctions";
+import {
+  sortByDescDate,
+  sortByAscDate,
+  sortByAscName,
+  sortByDescName,
+} from "../../utils/sortFunctions";
 
 const FileExplorer = () => {
   const [userFiles, setUserFiles] = useState<File[]>([]);
   const [dateSortOrder, setDateSortOrder] = useState("DESC");
+  const [nameSortOrder, setNameSortOrder] = useState("ASC");
 
   useEffect(() => {
     setUserFiles(fileData);
@@ -22,12 +28,24 @@ const FileExplorer = () => {
     }
   };
 
+  const sortByName = () => {
+    if (nameSortOrder === "ASC") {
+      sortByAscName(userFiles, setUserFiles);
+      setNameSortOrder("DESC");
+    } else if (nameSortOrder === "DESC") {
+      sortByDescName(userFiles, setUserFiles);
+      setNameSortOrder("ASC");
+    }
+  };
+
   return (
     <main>
       <div>
         <h1 className="font-bold">Your Documents</h1>
         <div className="flex gap-16 w-2/3 font-semibold">
-          <button className="basis-1/5">Name</button>
+          <button onClick={sortByName} className="basis-1/5">
+            Name
+          </button>
           <button onClick={sortByDate} className="basis-1/6">
             Last modified
           </button>
