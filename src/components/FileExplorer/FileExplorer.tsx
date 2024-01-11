@@ -11,9 +11,14 @@ const FileExplorer = () => {
   }, []);
 
   return (
-    <section>
-      <FileDisplay userFiles={userFiles} />
-    </section>
+    <main>
+      <div className="">
+        <h1 className="font-bold">Your Documents</h1>
+        <div className="flex flex-col gap-2">
+          <FileDisplay userFiles={userFiles} />
+        </div>
+      </div>
+    </main>
   );
 };
 

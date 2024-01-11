@@ -3,7 +3,7 @@ import FileExplorer from "./components/FileExplorer/FileExplorer";
 
 function App() {
   return (
-    <main>
+    <main className="p-5">
       <FileExplorer />
     </main>
   );
