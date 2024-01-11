@@ -23,7 +23,9 @@ const FileDisplay: React.FC<Props> = ({ userFiles }) => {
         if (!file.files) {
           return (
             <div key={file.name} className="flex gap-16 w-2/3">
-              <p className="basis-1/5">{file.name}</p>
+              <p id="file-name" className="basis-1/5">
+                {file.name}
+              </p>
               <p className="basis-1/6">{file.lastModified}</p>
               <p>{file.type}</p>
             </div>
@@ -33,6 +35,7 @@ const FileDisplay: React.FC<Props> = ({ userFiles }) => {
             <>
               <div key={file.name} className="flex gap-16 w-2/3">
                 <p
+                  id="file-name"
                   className="basis-1/5"
                   onClick={() => toggleFolderExpansion(file.name)}
                 >
