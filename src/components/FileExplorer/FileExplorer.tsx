@@ -60,7 +60,7 @@ const FileExplorer = () => {
 
   return (
     <main className="w-full p-5 border border-solid border-gray-400 rounded bg-sky-150">
-      <img src="/bright-logo.png" className="h-14 -ml-2" alt="" />
+      <img src="/bright-logo.png" className="h-14 -ml-2" alt="bright hr logo" />
       <div className="flex justify-between items-center py-2">
         <h1 className="font-bold text-xl">Welcome to your document store</h1>
         <input
