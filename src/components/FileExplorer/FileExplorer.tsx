@@ -23,7 +23,9 @@ const FileExplorer = () => {
     if (filterTerm.length) {
       setUserFiles(fileData);
       setUserFiles((userFiles) =>
-        userFiles.filter((file) => file.name.includes(filterTerm))
+        userFiles.filter((file) =>
+          file.name.toLowerCase().includes(filterTerm.toLowerCase())
+        )
       );
     } else {
       setUserFiles(fileData);
