@@ -3,7 +3,7 @@ import FileExplorer from "./components/FileExplorer/FileExplorer";
 
 function App() {
   return (
-    <main className="p-5">
+    <main className="flex flex-col items-start p-8 font-lato">
       <FileExplorer />
     </main>
   );

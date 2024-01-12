@@ -3,9 +3,10 @@ export default {
   testEnvironment: "jest-environment-jsdom",
   transform: {
     "^.+\\.tsx?$": "ts-jest",
-    // process `*.tsx` files with `ts-jest`
+    "^.+\\.svg$": "<rootDir>/svgTransform.cjs",
   },
   moduleNameMapper: {
-    "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/test/__ mocks __/fileMock.js",
+    "\\.(gif|ttf|eot|png)$": "<rootDir>/src/test/__ mocks __/fileMock.js",
+    ".+.svg?.+$": "<rootDir>/src/assets/computer-folder-open-icon.svg",
   },
 };
