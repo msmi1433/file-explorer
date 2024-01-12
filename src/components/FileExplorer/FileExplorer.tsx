@@ -60,11 +60,7 @@ const FileExplorer = () => {
 
   return (
     <main className="w-full p-5 border border-solid border-gray-400 rounded bg-sky-150">
-      <img
-        src="../../../public/bright-logo.png"
-        className="h-14 -ml-2"
-        alt=""
-      />
+      <img src="/bright-logo.png" className="h-14 -ml-2" alt="" />
       <div className="flex justify-between items-center py-2">
         <h1 className="font-bold text-xl">Welcome to your document store</h1>
         <input
@@ -94,7 +90,7 @@ const FileExplorer = () => {
           </button>
           <button
             onClick={sortByDate}
-            className="flex justify-between basis-1/3 pr-2 items-center border-r-2 border-l-2 pl-1 hover:bg-gray-100"
+            className="flex justify-between basis-1/3 items-center border-r-2 border-l-2 px-1 hover:bg-gray-100"
           >
             <p className="">Last modified</p>
             {sortedByDate && dateSortOrder === "ASC" && (
@@ -109,7 +105,7 @@ const FileExplorer = () => {
             )}
           </button>
           <div className="basis-1/3 items-center px-1">
-            <p>Kind</p>
+            <p>Type</p>
           </div>
         </div>
         <div className="flex flex-col gap-2 pt-2">

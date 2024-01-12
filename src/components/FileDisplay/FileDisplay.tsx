@@ -41,7 +41,9 @@ const FileDisplay: React.FC<Props> = ({ userFiles, insideFolder = false }) => {
                 />
                 <p id="file-name">{file.name}</p>
               </div>
-              <p className="basis-1/3 pl-1">{file.lastModified}</p>
+              <p className="basis-1/3 border-l-2 border-transparent px-1">
+                {file.lastModified}
+              </p>
               <p className="uppercase basis-1/3 px-1">{file.type}</p>
             </div>
           );
@@ -65,7 +67,9 @@ const FileDisplay: React.FC<Props> = ({ userFiles, insideFolder = false }) => {
                     className="w-2"
                   />
                 </button>
-                <p className="basis-1/3 pl-1">{file.lastModified}</p>
+                <p className="basis-1/3 px-1 border-l-2 border-transparent">
+                  {file.lastModified}
+                </p>
                 <p className="basis-1/3 capitalize px-1">{file.type}</p>
               </div>
               {expandFolder[file.name] ? (
