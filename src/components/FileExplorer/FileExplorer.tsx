@@ -59,19 +59,28 @@ const FileExplorer = () => {
   };
 
   return (
-    <main className="w-2/3 p-5 border border-solid border-gray-400">
-      <div>
-        <div className="flex justify-between">
-          <h1 className="font-bold pb-5 text-xl">Your Documents</h1>
-          <input
-            type="text"
-            className="appearance-none block w-16 bg-gray-200 text-gray-700 border border-gray-400 rounded px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-            onChange={(e) => setFilterTerm(e.target.value)}
-          />
-        </div>
-        <div className="flex gap-16 justify-start font-semibold">
-          <div className="flex justify-between basis-1/4 py-2 items-center">
-            <p onClick={sortByName}>Name</p>
+    <main className="w-full p-5 border border-solid border-gray-400 rounded bg-sky-150">
+      <img
+        src="../../../public/bright-logo.png"
+        className="h-14 -ml-2"
+        alt=""
+      />
+      <div className="flex justify-between items-center py-2">
+        <h1 className="font-bold text-xl">Welcome to your document store</h1>
+        <input
+          type="text"
+          placeholder="Search by name..."
+          className="px-2 h-8 w-30 bg-white text-gray-700 border border-gray-300 rounded leading-tight focus:outline-none focus:bg-white"
+          onChange={(e) => setFilterTerm(e.target.value)}
+        />
+      </div>
+      <div className="bg-white border border-gray-300 rounded p-3">
+        <div className="flex justify-start items-center font-semibold border-b-2">
+          <button
+            onClick={sortByName}
+            className="flex justify-between basis-1/3 px-1 items-center hover:bg-gray-100"
+          >
+            <p>Name</p>
             {sortedByName && nameSortOrder === "ASC" && (
               <img
                 src={caretDown}
@@ -82,11 +91,12 @@ const FileExplorer = () => {
             {sortedByName && nameSortOrder === "DESC" && (
               <img src={caretUp} alt="down arrow for sorting" className="w-2" />
             )}
-          </div>
-          <div className="flex justify-between basis-1/4 py-2 items-center">
-            <p onClick={sortByDate} className="">
-              Last modified
-            </p>
+          </button>
+          <button
+            onClick={sortByDate}
+            className="flex justify-between basis-1/3 pr-2 items-center border-r-2 border-l-2 pl-1 hover:bg-gray-100"
+          >
+            <p className="">Last modified</p>
             {sortedByDate && dateSortOrder === "ASC" && (
               <img
                 src={caretDown}
@@ -97,12 +107,12 @@ const FileExplorer = () => {
             {sortedByDate && dateSortOrder === "DESC" && (
               <img src={caretUp} alt="down arrow for sorting" className="w-2" />
             )}
-          </div>
-          <div className="basis-1/4 py-2 items-center">
-            <p className="py-2 border-l border-gray-300">Kind</p>
+          </button>
+          <div className="basis-1/3 items-center px-1">
+            <p>Kind</p>
           </div>
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 pt-2">
           <FileDisplay userFiles={userFiles} />
         </div>
       </div>
