@@ -40,6 +40,7 @@ To run the app locally, please enter command `npm run dev` and click the 'localh
 - React
 - Typescript
 - Vite
+- Tailwind
 
 ## Minimum requirements
 
